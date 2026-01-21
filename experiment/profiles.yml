@@ -1,0 +1,13 @@
+experiment:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      port: 5432
+      user: dbt_user
+      password: dbt_password
+      dbname: my_warehouse
+      schema: analytics
+      threads: 4
+      keepalives_idle: 0

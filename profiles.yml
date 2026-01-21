@@ -1,0 +1,12 @@
+my_project:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: db         # <--- Use the service name from docker-compose
+      user: dbt_user
+      pass: dbt_password
+      port: 5432
+      dbname: my_warehouse
+      schema: analytics
+      threads: 1

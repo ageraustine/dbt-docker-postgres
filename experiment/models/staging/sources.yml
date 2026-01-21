@@ -1,0 +1,55 @@
+version: 2
+
+sources:
+  - name: ecommerce
+    description: Raw e-commerce data from source systems
+    database: my_warehouse
+    schema: public
+    tables:
+      - name: raw_customers
+        description: Raw customer data
+        columns:
+          - name: id
+            description: Unique customer identifier
+            tests:
+              - unique
+              - not_null
+
+      - name: raw_products
+        description: Raw product catalog data
+        columns:
+          - name: id
+            description: Unique product identifier
+            tests:
+              - unique
+              - not_null
+
+      - name: raw_orders
+        description: Raw order transactions
+        columns:
+          - name: id
+            description: Unique order identifier
+            tests:
+              - unique
+              - not_null
+          - name: customer_id
+            description: Reference to customer
+            tests:
+              - not_null
+
+      - name: raw_order_items
+        description: Raw order line items
+        columns:
+          - name: id
+            description: Unique order item identifier
+            tests:
+              - unique
+              - not_null
+          - name: order_id
+            description: Reference to order
+            tests:
+              - not_null
+          - name: product_id
+            description: Reference to product
+            tests:
+              - not_null
