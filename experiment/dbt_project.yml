@@ -45,7 +45,3 @@ models:
     marts:
       +materialized: table
       +schema: marts
-
-    # Legacy example models
-    example:
-      +materialized: view
