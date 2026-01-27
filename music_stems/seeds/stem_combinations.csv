@@ -1,0 +1,4 @@
+track_path,replaced_stem_type,replacing_stem_type,replacing_stem_path,similarity_score
+s3://rtsy-gramosynth/folder1/track1.wav,piano,rhodes,s3://rtsy-gramosynth/folder2/rhodes1.wav,0.85
+s3://rtsy-gramosynth/folder1/track1.wav,electric bass,synth bass,s3://rtsy-gramosynth/folder3/synth_bass1.wav,0.92
+s3://rtsy-gramosynth/folder2/track2.wav,full kit,808 drums,s3://rtsy-gramosynth/folder4/808_kit1.wav,0.78

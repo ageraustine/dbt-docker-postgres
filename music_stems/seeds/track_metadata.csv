@@ -1,0 +1,4 @@
+track_path,genre,mood,energy,key,tempo,audio_filename,folder,source
+s3://rtsy-gramosynth/folder1/track1.wav,electronic,energetic,high,C,120,track1.wav,folder1,gramosynth
+s3://rtsy-gramosynth/folder2/track2.wav,jazz,mellow,medium,D,95,track2.wav,folder2,gramosynth
+s3://rtsy-gramosynth/folder3/track3.wav,rock,aggressive,high,E,140,track3.wav,folder3,gramosynth

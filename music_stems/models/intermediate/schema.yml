@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: int_combinations_with_metadata
+    description: "Combinations enriched with track metadata (genre, mood, energy, key, tempo)"
+    columns:
+      - name: track_path
+        description: "S3 path to the track"
+        tests:
+          - not_null
+
+      - name: genre
+        description: "Musical genre of the track"
+
+      - name: mood
+        description: "Mood/vibe of the track"
+
+      - name: energy
+        description: "Energy level (high/medium/low)"
+
+      - name: key
+        description: "Musical key"
+
+      - name: tempo
+        description: "Tempo in BPM"
+
+  - name: int_combinations_with_families
+    description: "Combinations with stem family classifications added"
+    columns:
+      - name: replaced_stem_family
+        description: "Family of the replaced stem (Keys, Bass, Drums, etc.)"
+
+      - name: replacing_stem_family
+        description: "Family of the replacing stem"
+
+  - name: int_quality_scored
+    description: "Combinations with quality scoring and tiering"
+    columns:
+      - name: quality_tier
+        description: "Quality classification: excellent, good, acceptable, or poor"
+
+      - name: same_family_replacement
+        description: "Boolean flag if replacement is within same family"
+
+      - name: composite_quality_score
+        description: "Composite score (0-100) based on similarity and family matching"
+
+  - name: int_best_combinations_per_track
+    description: "Top 3 best replacement options for each stem in each track"
+    columns:
+      - name: rank_within_stem
+        description: "Ranking of this replacement option (1-3) for the given stem"
+        tests:
+          - accepted_values:
+              values: [1, 2, 3]

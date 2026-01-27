@@ -1,0 +1,137 @@
+version: 2
+
+models:
+  - name: mart_stem_compatibility_matrix
+    description: "Analysis of which stem types are most compatible for replacement"
+    columns:
+      - name: replaced_stem_type
+        description: "Original stem type being replaced"
+
+      - name: replacing_stem_type
+        description: "Stem type used as replacement"
+
+      - name: combination_count
+        description: "Number of times this combination appears"
+
+      - name: avg_similarity
+        description: "Average similarity score for this combination"
+
+      - name: pct_high_similarity
+        description: "Percentage of combinations with similarity >= 0.9"
+
+  - name: mart_track_replacement_options
+    description: "Summary of replacement options available for each track"
+    columns:
+      - name: track_path
+        description: "S3 path to the track"
+
+      - name: total_replacement_options
+        description: "Total number of stem replacement options"
+
+      - name: stems_with_replacements
+        description: "Number of distinct stems that have replacements"
+
+      - name: high_quality_options
+        description: "Number of high similarity (>=0.9) replacement options"
+
+  - name: mart_popular_replacements
+    description: "Most frequently used replacement stems across all tracks"
+    columns:
+      - name: replacing_stem_type
+        description: "Type of the replacement stem"
+
+      - name: replacing_stem_path
+        description: "S3 path to the replacement stem"
+
+      - name: times_used_as_replacement
+        description: "How many times this stem is used as a replacement"
+
+      - name: unique_tracks
+        description: "Number of unique tracks this stem can replace into"
+
+  - name: mart_stem_family_compatibility
+    description: "Compatibility analysis at the stem family level (Keys, Bass, Drums, etc.)"
+    columns:
+      - name: replaced_stem_family
+        description: "Family of the replaced stem"
+
+      - name: replacing_stem_family
+        description: "Family of the replacing stem"
+
+      - name: total_combinations
+        description: "Total number of combinations for this family pair"
+
+      - name: avg_quality_score
+        description: "Average composite quality score (0-100)"
+
+      - name: replacement_type
+        description: "Same Family or Cross Family replacement"
+
+  - name: mart_genre_mood_analysis
+    description: "Analysis of replacement patterns by genre, mood, and energy"
+    columns:
+      - name: genre
+        description: "Musical genre"
+
+      - name: mood
+        description: "Track mood"
+
+      - name: energy
+        description: "Energy level"
+
+      - name: pct_high_quality
+        description: "Percentage of high quality replacements"
+
+  - name: mart_key_tempo_compatibility
+    description: "Analysis of replacements grouped by musical key and tempo ranges"
+    columns:
+      - name: key
+        description: "Musical key"
+
+      - name: tempo_range
+        description: "Tempo range (Slow, Medium, Upbeat, Fast)"
+
+      - name: total_combinations
+        description: "Total combinations for this key/tempo"
+
+      - name: pct_high_quality
+        description: "Percentage of excellent or good quality replacements"
+
+  - name: mart_best_replacements_per_track
+    description: "Top 3 best replacement options for each stem in each track"
+    columns:
+      - name: track_path
+        description: "S3 path to the track"
+
+      - name: replaced_stem_type
+        description: "Stem being replaced"
+
+      - name: rank_within_stem
+        description: "Ranking (1-3) of this replacement option"
+
+      - name: composite_quality_score
+        description: "Composite quality score (0-100)"
+
+      - name: quality_tier
+        description: "excellent, good, acceptable, or poor"
+
+  - name: mart_replacement_recommendations
+    description: "Actionable recommendations - only high quality options with ranking"
+    columns:
+      - name: track_path
+        description: "S3 path to the track"
+
+      - name: replaced_stem_type
+        description: "Stem to replace"
+
+      - name: replacing_stem_type
+        description: "Recommended replacement stem"
+
+      - name: recommendation
+        description: "Human-readable recommendation text"
+
+      - name: recommendation_priority
+        description: "Priority level 1-5 (5 is highest)"
+
+      - name: composite_quality_score
+        description: "Overall quality score (0-100)"

@@ -1,0 +1,69 @@
+version: 2
+
+seeds:
+  - name: stem_combinations
+    description: "Raw output from get_combinations.py script"
+    columns:
+      - name: track_path
+        description: "S3 path to the original track"
+        tests:
+          - not_null
+
+      - name: replaced_stem_type
+        description: "Type of stem being replaced"
+        tests:
+          - not_null
+
+      - name: replacing_stem_type
+        description: "Type of stem used as replacement"
+        tests:
+          - not_null
+
+      - name: replacing_stem_path
+        description: "S3 path to the replacement stem"
+        tests:
+          - not_null
+
+      - name: similarity_score
+        description: "Vector similarity score (0.0 to 1.0)"
+        tests:
+          - not_null
+
+  - name: track_metadata
+    description: "Metadata for tracks including genre, mood, energy, key, and tempo"
+    columns:
+      - name: track_path
+        description: "S3 path to the track (primary key)"
+        tests:
+          - not_null
+          - unique
+
+      - name: genre
+        description: "Musical genre"
+
+      - name: mood
+        description: "Track mood/vibe"
+
+      - name: energy
+        description: "Energy level"
+
+      - name: key
+        description: "Musical key"
+
+      - name: tempo
+        description: "Tempo in BPM"
+
+  - name: stem_family_mapping
+    description: "Mapping of stem types to their families (Keys, Bass, Drums, etc.)"
+    columns:
+      - name: stem_type
+        description: "Specific stem type name"
+        tests:
+          - not_null
+
+      - name: stem_family
+        description: "Family category (Keys, Bass, Drums, Guitar, Lead, Pad, Chords)"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Keys', 'Bass', 'Drums', 'Guitar', 'Lead', 'Pad', 'Chords']

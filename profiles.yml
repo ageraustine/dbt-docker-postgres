@@ -10,3 +10,29 @@ my_project:
       dbname: my_warehouse
       schema: analytics
       threads: 1
+
+experiment:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: db
+      user: dbt_user
+      pass: dbt_password
+      port: 5432
+      dbname: my_warehouse
+      schema: experiment
+      threads: 1
+
+music_stems:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: db
+      user: dbt_user
+      pass: dbt_password
+      port: 5432
+      dbname: my_warehouse
+      schema: music_stems
+      threads: 1

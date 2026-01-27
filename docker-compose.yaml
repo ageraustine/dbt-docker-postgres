@@ -14,17 +14,5 @@ services:
       - postgres_data:/var/lib/postgresql/data
       - ./init-scripts:/docker-entrypoint-initdb.d
 
-  dbt:
-    image: ghcr.io/dbt-labs/dbt-postgres:1.8.0
-    container_name: dbt_runner
-    volumes:
-      - .:/usr/app/dbt  # Mounts your local code into the container
-    profiles:
-      - dbt_only  # Prevents it from starting automatically with 'up'
-    environment:
-      DBT_PROFILES_DIR: /usr/app/dbt
-    depends_on:
-      - db
-
 volumes:
   postgres_data:

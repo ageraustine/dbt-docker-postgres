@@ -1,0 +1,38 @@
+stem_type,stem_family
+piano,Keys
+pno,Keys
+rhodes,Keys
+ep,Keys
+electric piano,Keys
+wurli,Keys
+organ,Keys
+clav,Keys
+electric bass,Bass
+bass guitar,Bass
+upright bass,Bass
+synth bass,Bass
+808,Bass
+bass,Bass
+full kit,Drums
+drum kit,Drums
+808 drums,Drums
+perc loops,Drums
+perc,Drums
+drums,Drums
+nylon,Guitar
+steel,Guitar
+electric clean,Guitar
+jazz,Guitar
+muted,Guitar
+guitar,Guitar
+pluck lead,Lead
+saw lead,Lead
+arp-lead,Lead
+lead,Lead
+pad,Pad
+pads,Pad
+strings,Pad
+string pad,Pad
+chords,Chords
+chord,Chords
+progression,Chords
